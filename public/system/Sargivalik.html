@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Särgivalik</title>
+
+<!-- NB! Kuna pilvest antakse https-ga, siis kõik laadimised ka sellega. -->
+
+<!-- Underscore -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+<!-- JQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Parse -->
+<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+
+<!-- Fondid -->
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="//fonts.googleapis.com/css?family=Armata" media="all" />
+
+<link rel="stylesheet" href='Sargivalik.css'>
+
+<script src='Sargivalik.js'></script>
+
+</head>
+
+<body>
+
+<div class='container-float'><!-- Bootstrap-->
+<div class='row'>
+
+<div class="col-md-7"><!-- svg-layer -->
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="" pageAlignment="none" x="0px" y="0px" width="640px" height="480px" viewBox="0 0 640 480" enable-background="new 0 0 640 480" xml:space="preserve">
+	
+		<defs xmlns=""/>
+	
+		<g xmlns="" type="LAYER" name="workspace" id="workspace" locked="true"/>
+		<g xmlns="" type="LAYER" name="Layer 01" id="Layer 01">
+
+			<path id='sark' transform="matrix(1 0 0 1 -54.41020716371884 -81.19862312853343)" width="574.7368421052631" height="480.7894736842105" stroke-miterlimit="3" stroke="#000000" fill="#FAEBD7" d="M276.4398223223202,90.3489236362395 Q267.2292960065306,138.24366047834474 321.52631578947364,186.05263157894734 Q369.4210526315793,224.73684210526312 443.1052631578947,180.5263157894737 Q474.4210526315791,132.63157894736838 476.26315789473676,81.05263157894737 L586.7894736842105,125.26315789473682 L671.5263157894735,186.05263157894734 L634.6842105263158,283.6842105263158 L533.3684210526316,259.7368421052631 L549.9473684210526,558.1578947368421 L211,561.8421052631579 L233.10526315789468,263.42105263157896 L122.57894736842104,287.36842105263156 L96.78947368421046,169.4736842105263 L177.8421052631578,134.4736842105263 L277.31578947368416,90.26315789473682 L276.4398223223202,90.3489236362395 Z "/>
+
+			<text id='tekst' type="textBox" transform="matrix(1 0 0 1 195.54005891641486 214.75406370360014)" width="328.91179262294384" height="108" stroke-miterlimit="3" stroke="none" fill="#C04211" font-family="Armata" font-size="28" text-align="left" text-anchor="start">
+
+				<tspan id='t1' x="0" y="28"><![CDATA[Broad consensus]]></tspan>
+				<tspan id='t2' x="0" y="64"><![CDATA[        &      ]]></tspan>
+				<tspan id='t3' x="0" y="100"><![CDATA[    working code]]></tspan>
+
+			</text>
+
+		</g>
+	
+	</svg>
+</div><!-- svg-layer -->
+
+<div class="col-md-5">
+	<p id='PoeNimetus'>Särgipood</p>
+
+	<!-- Tekstid -->
+	<div class="dropdown">
+		<button class="nupp btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			Tekst
+			<span class="caret"></span>
+		</button>
+		<ul id='Tekstid' class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+		</ul>
+	</div>
+
+	<!-- Teksti värv -->	
+	<div class="dropdown">
+		<button class="nupp btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			Teksti värv
+			<span class="caret"></span>
+		</button>
+		<ul id='Tekstivarv' class="dropdown-menu">
+			<li><a href="#">crimson #DC143C</a></li>
+			<li><a href="#">darkblue #00008B</a></li>
+			<li><a href="#">darkolivegreen #556B2F</a></li>
+			<li><a href="#">dimgray #696969</a></li>
+		</ul>
+	</div>
+
+	<!-- Särgi värv -->	
+	<div class="dropdown">
+		<button class="nupp btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			Särgi värv
+			<span class="caret"></span>
+		</button>
+		<ul id='Sargivarv' class="dropdown-menu">
+			<li><a href="#">antiquewhite #FAEBD7</a></li>
+			<li><a href="#">aquamarine #7FFFD4</a></li>
+			<li><a href="#">cadetblue #5F9EA0</a></li>
+			<li><a href="#">burlywood #DEB887</a></li>
+		</ul>
+	</div>
+
+	<p id='Varsti'>Avame varsti</p>
+</div>
+
+</div><!-- row -->
+</div><!-- container -->
+
+</body>
+</html>

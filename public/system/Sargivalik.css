@@ -1,0 +1,14 @@
+﻿body { font-family: 'Armata', Sans Serif; }
+
+#PoeNimetus { font-size: 24px; margin: 2rem 0 4rem; }
+
+#Varsti { font-size: 24px; margin-top: 4rem; }
+
+.dropdown { margin-top: 4rem; }
+
+.nupp { font-size: 20px;
+	background-color: #FFF !important;
+	color: #180D01 !important;
+	background-image: none !important;
+	border-color: #180D01 !important;
+}

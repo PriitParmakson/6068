@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blg &gt; Md</title>
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+	
+	<!-- NB! Kuna pilvest antakse https-ga, siis kõik laadimised ka sellega. -->
+	
+	<!-- Underscore -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	
+	<!-- JQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+
+	<!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<!-- Parse -->
+	<script src="https://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+	
+	<!-- Remarkable https://github.com/jonschlinkert/remarkable -->
+	<script src="https://cdn.jsdelivr.net/remarkable/1.6.0/remarkable.min.js"></script>
+	
+	<!-- Fondid -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+	
+	<link rel='stylesheet' href='BloggeristTeisendaja.css'>	
+	
+	<script src='reMarked.js'></script -->
+	<script src='BloggeristTeisendaja.js'></script -->
+	
+</head>	
+
+<body>
+
+<div class='container-fluid'>
+
+<div class='row'>
+<col class='md-12'>
+
+	<!-- Autentimisala -->
+	<div id='autentimisala'>
+	
+		<!-- Kasutajanimi-->
+		<span class='kasutajanimi'></span>
+		
+		<!-- Logi sisse/välja-->
+		<a href='#' class='logiNupp'></a>
+		
+		<!-- Sisselogimisvorm-->
+		<form style="display:none">
+			<div class="VEATEADE" style="display:none"></div>
+			<input type="text" id="login-username" placeholder="Nimi" />
+			<input type="password" id="login-password" placeholder="Salasõna" />
+
+			<a href='#' class='sisene btn btn-default nupp'>Sisene</a>
+			<a href='#' class='katkesta btn btn-default nupp'>
+				<span class='glyphicon glyphicon-remove'></span>
+			</a>
+		</form>
+		
+	</div>
+	<!-- Autentimisala lõpp -->
+
+	<h1>Blogger-i tekstide Markdown-i teisendaja</h1>
+
+	<!-- //// Teated //// --->
+	<div id='TEATED'>&nbsp;
+
+		<div id='TEABEBLOKK' class="alert hidden">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<span id='TEABETEADE'></span>
+		</div>	
+		
+		<div id='EDUBLOKK' class="alert alert-success hidden">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<span id='EDUTEADE'></span>
+		</div>	
+
+		<div id='VEABLOKK' class="alert alert-danger hidden">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<span id='VEATEADE'></span>
+		</div>	
+
+	</div>
+		
+	<form class="form-inline">
+
+		<!-- //// Teisenda nupp //// -->
+		<a id='teisendaNupp' href='#' class='btn btn-default nupp'>Teisenda</a>  
+
+		<!-- //// Artikli nimi //// -->
+		<input type="text" id="ArtikliNimi" placeholder="Artikli nimi"  class="form-control" />
+			<!-- //// Salvesta nupp //// --></!-->
+
+		<a id='salvestaNupp' href='#' class='btn btn-default nupp'>Salvesta</a>  
+				
+	</form>
+
+	</div><!-- col -->
+</div><!-- row -->
+
+<div class="row">
+<div class='col-md-4'>
+	<!-- //// Blogger-i teksti redigeerimisala //// -->	
+	<textarea id='alaBlogger' rows='20' class='noResize'
+		placeholder='Bloggeri tekst' spellcheck="false"></textarea>
+
+</div>
+
+<div class='col-md-8'>
+	<!-- //// Markdown-i redigeerimisala //// -->	
+	<textarea id='alaMarkdown' rows='20' class='noResize'
+		placeholder='Markdown-i tekst' spellcheck="false"></textarea>
+
+</div>
+
+
+</div><!-- row -->	
+</div><!-- container -->
+
+<!-- Abielement, milles toimub teisendamine -->
+<div id='abi' style='display: none;'><h1>Pealkiri</h1><p>Lõik</p></div>
+
+<footer>
+</footer>
+
+</body>
+</html>
+

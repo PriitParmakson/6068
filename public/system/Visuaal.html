@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+
+<body>
+  <script>
+    var svg = d3.select('body')
+      .append('svg')
+      .attr('width', 800)
+      .attr('height', 800);
+
+    var data = [
+{ "p":	1, "s": "10 kB", "sn": 1, "sd": "SafeNet Luna SA 1700", "m": 	-10	},
+{ "p":	1, "s": "10 kB", "sn": 2, "sd": "SafeNet Luna G5", "m": 	-8	},
+{ "p":	1, "s": "10 kB", "sn": 3, "sd": "SafeNet Luna PCI-E 1700", "m": 	8	},
+{ "p":	1, "s": "10 kB", "sn": 4, "sd": "SafeNet USB eToken 5100", "m": 	759	},
+{ "p":	1, "s": "10 kB", "sn": 5, "sd": "Aladdin USB token", "m": 	363	},
+{ "p":	1, "s": "10 kB", "sn": 6, "sd": "Thales nConnect 500", "m": 	69	},
+{ "p":	20, "s": "10 kB", "sn": 1, "sd": "SafeNet Luna SA 1700", "m": 	-17	},
+{ "p":	20, "s": "10 kB", "sn": 2, "sd": "SafeNet Luna G5", "m": 	47	},
+{ "p":	20, "s": "10 kB", "sn": 3, "sd": "SafeNet Luna PCI-E 1700", "m": 	-78	},
+{ "p":	20, "s": "10 kB", "sn": 4, "sd": "SafeNet USB eToken 5100", "m": 	12752	},
+{ "p":	20, "s": "10 kB", "sn": 5, "sd": "Aladdin USB token", "m": 	6599	},
+{ "p":	20, "s": "10 kB", "sn": 6, "sd": "Thales nConnect 500", "m": 	735	},
+{ "p":	1, "s": "2 MB", "sn": 1, "sd": "SafeNet Luna SA 1700", "m": 	-52	},
+{ "p":	1, "s": "2 MB", "sn": 2, "sd": "SafeNet Luna G5", "m": 	4	},
+{ "p":	1, "s": "2 MB", "sn": 3, "sd": "SafeNet Luna PCI-E 1700", "m": 	-37	},
+{ "p":	1, "s": "2 MB", "sn": 4, "sd": "SafeNet USB eToken 5100", "m": 	6568	},
+{ "p":	1, "s": "2 MB", "sn": 5, "sd": "Aladdin USB token", "m": 	3409	},
+{ "p":	1, "s": "2 MB", "sn": 6, "sd": "Thales nConnect 500", "m": 	314	},
+{ "p":	20, "s": "2 MB", "sn": 1, "sd": "SafeNet Luna SA 1700", "m": 	-17	},
+{ "p":	20, "s": "2 MB", "sn": 2, "sd": "SafeNet Luna G5", "m": 	47	},
+{ "p":	20, "s": "2 MB", "sn": 3, "sd": "SafeNet Luna PCI-E 1700", "m": 	-78	},
+{ "p":	20, "s": "2 MB", "sn": 4, "sd": "SafeNet USB eToken 5100", "m": 	12752	},
+{ "p":	20, "s": "2 MB", "sn": 5, "sd": "Aladdin USB token", "m": 	6599	},
+{ "p":	20, "s": "2 MB", "sn": 6, "sd": "Thales nConnect 500", "m": 	735	}
+				];
+        
+    svg.selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr('r', function(d){
+        return Math.trunc(Math.sqrt(Math.abs(d.m)));
+      })
+      .attr('cx', function(d){
+				var x;
+				if (d.p == 1) { x = 100; } else { x = 500; }
+				if (d.sn > 3) { x = x + 200; }
+        return x;
+      })
+      .attr('cy', function(d){
+				var y;
+				if (d.s == "10 kB") { y = 100; } else { y = 500; }
+				y = y + (d.sn % 3) * 80; 
+				return y;
+      })
+			.style("fill", function(d) { return "none"; })
+			.style("stroke", function(d) { 
+				if (d.m < 0) { return "blueviolet" }
+				else { return "deeppink" }	;
+			})
+			;
+        
+		// Tootenimetuste kuvamine
+		var tekstid = svg.selectAll("text")
+			.data(data)
+			.enter()
+			.append("text");
+
+		// Atribuutide lisamine
+		var tekstiatribuudid = tekstid
+			.attr('x', function (d) { 
+				var x;
+				if (d.p == 1) { x = 100; } else { x = 500; }
+				if (d.sn > 3) { x = x + 200; }
+        return x;
+			})
+			.attr('y', function (d) {
+				var y;
+				if (d.s == "10 kB") { y = 100; } else { y = 500; }
+				y = y + (d.sn % 3) * 80; 
+				return y;
+			})
+			.style('fill', function (d) { return 'Black'; })
+			.attr('font-family', 'Segoe UI')
+			.attr('font-size', '14px')
+			.attr('font-weight', '300')
+			.html(function (d) { return d.sd; });
+        
+				
+  </script>
+</body>
+
+</html>

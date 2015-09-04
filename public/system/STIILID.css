@@ -1,0 +1,174 @@
+﻿/* Kasutatud elemente: http://www.wilfred.me.uk/blog/2015/05/21/effective-technical-interviews/
+GPL
+*/
+
+/* //////// Üldine font, suurus, reavahe ja värv //////// */
+body {
+	font-size: 14px; font-family: 'Armata', Sans-Serif; color: #888; line-height: 1.4; }
+// Oli: Lucida Grande
+
+/*
+	#f9f9f9	peaaegu valge
+	#E9E9E9	väga hele, beež
+	#ddd		väga hele hall
+	#888		heledam hall
+	#333		tugev hall (Bootstrapi tekstivärv)
+	#484848	tumehall
+	#009999	mereroheline
+	#EE5F64 roosa (katkestamise dialoogis, rubriigis "Aktuaalne")
+*/
+
+.aktuaalne { border: 2px solid #EE5F64; color: #EE5F64;
+  padding: 1em; margin: 1em; }
+
+/* Lingid NB! Bootstrapi ümberdefineerimine */
+a { background-color: inherit; color: #009999;
+  text-decoration: none; }
+
+/* //////// Ülamenüü //////// */
+.navbar { margin-bottom: 0; /* Bootstrapi ümberdefineerimine */ }
+.navbar-header { width: 100%; }
+.navbar-brand { margin-right: 5rem; }
+
+/* //// Kursuse nimetus //// */
+#kursusenimetus { float: left; }
+.sissejuhatus {
+	font-weight: 300;
+	font-family: "Roboto Condensed", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 1.5rem; letter-spacing: 2px; line-height: 1em;
+	margin-left: 1rem; }
+
+/* //// Autentimisala //// */
+#autentimisala { float: right; font-size: 14px; }
+
+/* Bootstrapi vaikeväärtuste üledefineerimine */
+.navbar-nav .col-sm-6 { padding-left: 5px; padding-right: 5px; }
+
+/* //// Dropdown menüü //// */
+.dropdown-menu { min-width: 200px; }
+.dropdown-menu.columns-2 { min-width: 400px; }
+@media (max-width: 767px) {
+	.dropdown-menu.columns-2 { min-width: 240px !important; overflow-x: hidden; }
+}
+.dropdown-menu li a { padding: 5px; }
+
+/* Loengute, praktikumide ja ülesannete nummerdamine */
+.navbar-nav ol li:before {
+	content: counter(level1) " "; /*Instead of ". " */
+	counter-increment: level1; }
+.navbar-nav ol { counter-reset: level1; }
+
+/* //// Mitmeveerulised menüüd //// */
+.multi-column-dropdown { list-style: none inside; }
+.multi-column-dropdown li a {
+	display: block; clear: both; line-height: 1.428571429;
+	color: #333; white-space: normal; }
+
+.redaktoriNupp { margin-left: 1rem; /* Redaktori nupp on eraldi */
+	margin-right: 2rem; }
+.sees { background-color: #E7E7E7; }
+
+.logiNupp { padding-top: 0 !important; } /* Loginupp */
+
+/* //////////////// Külgmenüü //////////////// */
+.kylgmenyy { background: linear-gradient(to right, White, #F8F8F8);
+	/* Külgmenüü pikendamine alla välja. Vt
+http://stackoverflow.com/questions/19089384/twitter-bootstrap-3-two-columns-full-height */
+	color: #777; /* Unifitseeritud ülemise nav-ribaga */
+  padding-bottom: 100%; margin-bottom: -100%;
+	padding-top: 20px; }
+.kylgmenyy ul { /* Ääre eemaldamine, vt http://alistapart.com/article/taminglists */
+	margin-left: 0; padding-left:0; }
+.kylgmenyy li { padding-left: 10px; }
+.kylgmenyy .navbar li { list-style: none; }
+.kylgmenyy .navbar li a {
+	color: #777; /* Unifitseeritud ülemise nav-ribaga */
+	display: block; border-left: 3px solid transparent;
+	padding: 10px 10px 10px 10px;
+	 }
+.kylgmenyy .navbar .active a,
+.kylgmenyy .navbar li a:hover,
+.kylgmenyy .navbar li a:focus {
+		color: #333; text-decoration: none;
+		background-color: transparent; border-left: 3px solid Gray; }
+
+/* //////////////// article (ja footer) //////////////// */
+
+article { color: #484848; font-size: 14px;
+	padding-top: 0.5em; } /* Kõik artiklis on tumehall */
+
+/* //////// Lõik //////// */
+article p { margin: 0 0 1.1em 0; }
+
+/* //////// Loend //////// */
+article ul { list-style-type: circle; }
+article li:before { /* content: '—  '; /* em dash */ }
+
+/* //////// Pealkiri (h1) //////// */
+h1 { font: 1.1em "Roboto Condensed", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 26px; 	font-weight: 300; letter-spacing: 3px;
+	margin: 0; }
+
+/* //////// Jaotise pealkiri //////// */
+h2 { font-weight: bold; font-size: 1.3em; margin-bottom: 0; }
+
+/* //////// Veerupäised tabelites //////// */
+th { font-weight: normal; }
+
+/* //////// Kood //////// */
+code, pre { font: 1.1em 'Courier New', Courier, Monospace;
+	color: black; background-color: #F9F9F9; }
+p code, li code { /* Kood tekstis */
+	padding: 1px 4px; }
+
+/*	Suuremate koodilõikude korral code-taagide ümber on pre-taagid
+	Ka Markdown teeb seda. */
+pre {
+	padding: 0.6em 0 0.6em 0.6em;
+	margin: 0 0 1em 0;
+	white-space: pre; overflow: auto;
+	border: 1px solid #ddd;
+}
+
+/* //////// Blokktsitaat või -märkus //////// */
+blockquote { font-size: 1em; line-height: 1.5em; color: #888;
+	padding: 0 0 0 15px;
+	border-left: 10px solid #ddd;
+ }
+
+/* //////// Väljatõste //////// */
+em { font-style: italic; }
+
+/* */
+.nupp { font-size: 20px;
+	background-color: #FFF !important;
+	color: #180D01 !important;
+	background-image: none !important;
+	border-color: #180D01 !important;
+}
+
+/* //// Redaktor //// */
+textarea { display: block;
+	width: 100%;
+	margin-left: auto; margin-right: auto; /* keskele paigutamine */
+  border:solid 1px #ccc; border-radius: 8px; color: #777;
+  padding:7px 14px; margin-top: 15px; margin-bottom: 20px; }
+.nupp { background-color: transparent !important;
+	background-image: none !important;
+	color: DarkGray !important; border-color: DarkGray !important; }
+#katkestaNupp { color: #FF555D !important; } /* roosakaspunane */
+#TEATED { min-height: 40px; border: 1 px solid Pink; margin: 15px 0; }
+
+
+/* //////// footer //////// */
+footer { min-height: 10rem; }
+
+/* //////// GitHubi ikooni keeramiseks //////// */
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
