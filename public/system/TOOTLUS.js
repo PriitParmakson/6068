@@ -38,6 +38,7 @@ $(function(){
 					$('#Arendus').append(lisa);				
 				}
 				seaYlamenyySyndmusekasitlejad();
+				SeaRedaktorinupp();
 				SeaAutentimisala();
 				laeEsimeneArtikkel();		
 			}
@@ -47,13 +48,6 @@ $(function(){
 		}
 	});
 	
-	// Ülamenüü laadimine. jQuery load on asünk
-	// $('#ylamenyy').load('system/Ulamenuu.html', function() {
-	// 	seaYlamenyySyndmusekasitlejad();
-	// 	SeaAutentimisala();
-	// 	laeEsimeneArtikkel();		
-	// });
-
 }); /////////////////////////////////////////	
 
 function SeaAutentimisala() {
@@ -69,15 +63,9 @@ function SeaAutentimisala() {
 		
 		// Kuva väljalogimise nupp
 		$('#autentimisala .logiNupp').text('Logi välja');
-		// Kuva redaktorinupp
-		$('.redaktoriNupp').show();
-
 	} else {
 		// Kuva sisselogimise nupp
 		$('#autentimisala .logiNupp').text('Logi sisse');
-		// Peida redaktorinupp
-		$('.redaktoriNupp').hide();
-		
 	};
 	
 	// Sündmusekäsitleja Logi sisse/välja nupule
@@ -137,6 +125,76 @@ function SeaAutentimisala() {
 		// Sule vorm
 		$('#autentimisala form').toggle();
 		$('#autentimisala .logiNupp').removeClass('hidden');
+	});
+	
+}
+
+function SeaRedaktorinupp() {
+
+	// Kasutaja sisselogitusele vastavalt kuva/peida redaktorinupp 
+	if (Parse.User.current()) { 
+		$('.redaktoriNupp').show();
+	} else {
+		$('.redaktoriNupp').hide();
+	}
+	
+	// Redaktorinupu sündmusekäsitleja
+	$('.redaktoriNupp a').on("click", function(event) {
+		// Tõkesta lehe standardne laadimine
+		event.preventDefault();
+		
+		// Autenditud kasutaja korral ava kuvatud artikkel redigeerimiseks
+		// Anonüümse kasutaja korral ava redaktor sõnumi saatmiseks
+		
+		var currentUser = Parse.User.current();
+		if (currentUser) { // Autenditud kasutaja 
+			if (redaktorSees) {
+				// Redaktorist väljumine ainult katkesta nupuga
+				$('#TEABETEADE').html('Salvestage või katkestage redigeerimine');
+				$('#TEABEBLOKK').removeClass('hidden');
+				$(this).parent().blur();
+				return
+			} else {
+				// Lae redaktor
+				var href = $(this).attr('href');
+				$('article').first().load(href, function() {
+					// Külgmenüü tühjendamine
+					$('#sidebar').html('');
+					// Alustavad toimingud redaktoris
+					// Lae artikkel sisestusalasse
+					$('#sisestusala').val(jArtikkelObjekt.Tekst);
+					$('#sisestusala').focus();
+					seaRedaktoriSyndmusekasitlejad();
+				}); 
+				redaktorSees = true;
+				$(this).parent().addClass('sees');			
+			}		
+
+		} else { // Anonüümne kasutaja
+			if (redaktorSees) {
+				// Redaktorist väljumine ainult katkesta nupuga
+				$('#TEABETEADE').html('Saatke teade või katkestage redigeerimine');
+				$('#TEABEBLOKK').removeClass('hidden');
+				$(this).parent().blur();
+				return
+			} else {
+				// Lae redaktor
+				var href = $(this).attr('href');
+				$('article').first().load(href, function() {
+					// Külgmenüü tühjendamine
+					$('#sidebar').html('');
+					// Alustavad toimingud redaktoris
+					// Tühjenda sisestusala
+					$('#sisestusala').val();
+					$('#sisestusala').focus();
+					seaRedaktoriSyndmusekasitlejad();
+				}); 
+				redaktorSees = true;
+				$(this).parent().addClass('sees');			
+			}		
+
+		}		
+		
 	});
 	
 }
@@ -238,7 +296,7 @@ function salvestaArtikkel() {
 // Abistavad toimingud redaktorist väljumisel
 function lahkuRedaktorist() {
 		redaktorSees = false;
-		$('#ylamenyy .redaktoriNupp a').removeClass('sees').blur();	
+		$('.redaktoriNupp a').removeClass('sees').blur();	
 }
 
 // Sea ülamenüü sündmusekäsitlejad
@@ -262,65 +320,6 @@ function seaYlamenyySyndmusekasitlejad() {
 		laeArtikkel(href);
 	});
 
-	// Redaktorinupu sündmusekäsitleja
-	$('#ylamenyy .redaktoriNupp a').on("click", function(event) {
-		// Tõkesta lehe standardne laadimine
-		event.preventDefault();
-		
-		// Autenditud kasutaja korral ava kuvatud artikkel redigeerimiseks
-		// Anonüümse kasutaja korral ava redaktor sõnumi saatmiseks
-		
-		var currentUser = Parse.User.current();
-		if (currentUser) { // Autenditud kasutaja 
-			if (redaktorSees) {
-				// Redaktorist väljumine ainult katkesta nupuga
-				$('#TEABETEADE').html('Salvestage või katkestage redigeerimine');
-				$('#TEABEBLOKK').removeClass('hidden');
-				$(this).parent().blur();
-				return
-			} else {
-				// Lae redaktor
-				var href = $(this).attr('href');
-				$('article').first().load(href, function() {
-					// Külgmenüü tühjendamine
-					$('#sidebar').html('');
-					// Alustavad toimingud redaktoris
-					// Lae artikkel sisestusalasse
-					$('#sisestusala').val(jArtikkelObjekt.Tekst);
-					$('#sisestusala').focus();
-					seaRedaktoriSyndmusekasitlejad();
-				}); 
-				redaktorSees = true;
-				$(this).parent().addClass('sees');			
-			}		
-
-		} else { // Anonüümne kasutaja
-			if (redaktorSees) {
-				// Redaktorist väljumine ainult katkesta nupuga
-				$('#TEABETEADE').html('Saatke teade või katkestage redigeerimine');
-				$('#TEABEBLOKK').removeClass('hidden');
-				$(this).parent().blur();
-				return
-			} else {
-				// Lae redaktor
-				var href = $(this).attr('href');
-				$('article').first().load(href, function() {
-					// Külgmenüü tühjendamine
-					$('#sidebar').html('');
-					// Alustavad toimingud redaktoris
-					// Tühjenda sisestusala
-					$('#sisestusala').val();
-					$('#sisestusala').focus();
-					seaRedaktoriSyndmusekasitlejad();
-				}); 
-				redaktorSees = true;
-				$(this).parent().addClass('sees');			
-			}		
-
-		}		
-		
-	});
-	
 }
 
 // Sündmusekäsitlejad Redaktori nuppudele
