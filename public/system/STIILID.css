@@ -158,8 +158,6 @@ textarea { display: block;
 	background-image: none !important;
 	color: DarkGray !important; border-color: DarkGray !important; }
 #katkestaNupp { color: #FF555D !important; } /* roosakaspunane */
-#TEATED { min-height: 40px; border: 1 px solid Pink; margin: 15px 0; }
-
 
 /* //////// footer //////// */
 footer { min-height: 10rem; }
