@@ -28,10 +28,9 @@ a { background-color: inherit; color: #009999;
 /* //////// Ülamenüü //////// */
 .navbar { margin-bottom: 0; /* Bootstrapi ümberdefineerimine */ }
 .navbar-header { width: 100%; }
-.navbar-brand { margin-right: 5rem; }
 
 /* //// Kursuse nimetus //// */
-#kursusenimetus { float: left; }
+#kursusenimetus { float: left; margin-right: 5rem; }
 .sissejuhatus {
 	font-weight: 300;
 	font-family: "Roboto Condensed", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -39,11 +38,16 @@ a { background-color: inherit; color: #009999;
 	font-size: 1.5rem; letter-spacing: 2px; line-height: 1em;
 	margin-left: 1rem; }
 
+/* //// Redaktorinupp //// */
+.redaktoriNupp { float: right; margin-right: 2rem; }
+.sees { background-color: #E7E7E7; }	
+	
 /* //// Autentimisala //// */
-#autentimisala { float: right; font-size: 14px; }
+#autentimisala { float: right; font-size: 14px; margin-right: 5rem; }
 
 /* Bootstrapi vaikeväärtuste üledefineerimine */
 .navbar-nav .col-sm-6 { padding-left: 5px; padding-right: 5px; }
+.navbar-nav > li > a { padding-top: 0 !important; }
 
 /* //// Dropdown menüü //// */
 .dropdown-menu { min-width: 200px; }
@@ -64,10 +68,6 @@ a { background-color: inherit; color: #009999;
 .multi-column-dropdown li a {
 	display: block; clear: both; line-height: 1.428571429;
 	color: #333; white-space: normal; }
-
-.redaktoriNupp { margin-left: 1rem; /* Redaktori nupp on eraldi */
-	margin-right: 2rem; }
-.sees { background-color: #E7E7E7; }
 
 .logiNupp { padding-top: 0 !important; } /* Loginupp */
 
