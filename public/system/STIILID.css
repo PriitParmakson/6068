@@ -25,6 +25,9 @@ body {
 a { background-color: inherit; color: #009999;
   text-decoration: none; }
 
+/* //// Material design ikoonid //// */
+.ikoon { color: #00acc1; font-size: 48px !important; }	
+	
 /* //////// Ülamenüü //////// */
 .navbar { margin-bottom: 0; /* Bootstrapi ümberdefineerimine */ }
 .navbar-header { width: 100%; }
@@ -164,16 +167,9 @@ textarea { display: block;
 .nupp { background-color: transparent !important;
 	background-image: none !important;
 	color: DarkGray !important; border-color: DarkGray !important; }
-#katkestaNupp { color: #FF555D !important; } /* roosakaspunane */
+#redaktorinupud { text-align: right; }	
+#salvestaNupp, #katkestaNupp { margin-right: 1rem; }
 
 /* //////// footer //////// */
 footer { min-height: 10rem; }
 
-/* //////// GitHubi ikooni keeramiseks //////// */
-.rotate90 {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}

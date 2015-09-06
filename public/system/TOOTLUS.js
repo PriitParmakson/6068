@@ -297,7 +297,7 @@ function salvestaArtikkel() {
 // Abistavad toimingud redaktorist väljumisel
 function lahkuRedaktorist() {
 		redaktorSees = false;
-		$('.redaktoriNupp a').removeClass('sees').blur();	
+		$('.redaktoriNupp').removeClass('sees').blur();	
 }
 
 // Sea ülamenüü sündmusekäsitlejad
