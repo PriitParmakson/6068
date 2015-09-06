@@ -52,43 +52,45 @@ $(function(){
 
 function SeaAutentimisala() {
 	
-	// Kuva kasutajanimi (kui on) ja sea Logi sisse/välja nupp
+	// Kuva kasutajanimi (kui on)
 	if (Parse.User.current()) { 
 		// Kasutaja on varasemast sisse logitud
 		// Kuva kasutaja nimi
 		var a = JSON.stringify(Parse.User.current());
 		var b = JSON.parse(a);
 		console.log('Kasutaja: ' + b.username);
-		$('#autentimisala .kasutajanimi').text(b.username);
-		
-		// Kuva väljalogimise nupp
-		$('#autentimisala .logiNupp').text('Logi välja');
+		$('#kasutajanimi').text(b.username).show();
+		$('.redaktoriNupp').show();
 	} else {
-		// Kuva sisselogimise nupp
-		$('#autentimisala .logiNupp').text('Logi sisse');
-	};
+		$('#kasutajanimi').hide();				
+	}
 	
-	// Sündmusekäsitleja Logi sisse/välja nupule
-	$('#autentimisala .logiNupp').click(function(event) {
+	// Sündmusekäsitleja Sisse/väljalogimisnupule
+	$('#logimisnupp').click(function(event) {
 		event.preventDefault();
 		
 		if (Parse.User.current()) {
 			// Logi välja
 			Parse.User.logOut();
-			$('.kasutajanimi').text('');
-			$('#autentimisala .logiNupp').text('Logi sisse');
+			$('#kasutajanimi').hide();
 			// Peida redaktorinupp
 			$('.redaktoriNupp').hide();
 		} else {
-			// Logi sisse (ava sisenemisvorm)
-			$('#autentimisala .logiNupp').addClass('hidden');
-			$('#autentimisala form').toggle();
-			$('#autentimisala .sisene').focus();
+			// Kas sisenemisvorm on avatud?
+			if ($('#logimisvorm').is(':visible')) {
+					// ei reageeri
+			} else {
+				// Peida logimisnupp
+				$('#logimisnupp').hide();
+				// Ava sisenemisvorm)
+				$('#logimisvorm').toggle();
+				$('#logimisvorm .sisene').focus();		
+			} 
 		}				
 	});
 	
 	// Sündmusekäsitlejad sisenemisvormi Sisene nupule
-	$('#autentimisala .sisene').click(function(event) {
+	$('#sisene').click(function(event) {
 		event.preventDefault();
 		
 		// Võta kasutajanimi ja salasõna vormilt
@@ -102,12 +104,11 @@ function SeaAutentimisala() {
 				var b = JSON.parse(a);
 				console.log(b.username + ' logis sisse');
 				// Kuva kasutaja nimi
-				$('#autentimisala .kasutajanimi').text(b.username);
+				$('#kasutajanimi').text(b.username).show();
 				// Sulge sisenemisvorm
-				$('#autentimisala form').toggle();
-				// Muuda Logi sisse/välja nupp
-				$('#autentimisala .logiNupp').text('Logi välja');
-				$('#autentimisala .logiNupp').removeClass('hidden');
+				$('#logimisvorm').toggle();
+				// Kuva logimisnupp
+				$('#logimisnupp').show();
 				// Kuva redaktorinupp
 				$('.redaktoriNupp').show();
 			},
@@ -120,11 +121,11 @@ function SeaAutentimisala() {
 	});
 
 	// Sündmusekäsitleja sisenemisvormi Katkesta nupule
-	$('#autentimisala .katkesta').click(function(event) {
+	$('#katkesta').click(function(event) {
 		event.preventDefault();
 		// Sule vorm
-		$('#autentimisala form').toggle();
-		$('#autentimisala .logiNupp').removeClass('hidden');
+		$('#logimisvorm').toggle();
+		$('#logimisnupp').show();
 	});
 	
 }

@@ -30,7 +30,7 @@ a { background-color: inherit; color: #009999;
 .navbar-header { width: 100%; }
 
 /* //// Kursuse nimetus //// */
-#kursusenimetus { float: left; margin-right: 5rem; }
+#kursusenimetus { float: left; }
 .sissejuhatus {
 	font-weight: 300;
 	font-family: "Roboto Condensed", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -38,13 +38,22 @@ a { background-color: inherit; color: #009999;
 	font-size: 1.5rem; letter-spacing: 2px; line-height: 1em;
 	margin-left: 1rem; }
 
+/* //// Logimisvorm //// */
+#logimisvorm { float: right; font-size: 14px; display: none; }		
+#logimisvorm input { padding: 0; vertical-align: 16px; }
+#login-username { width: 15rem; }
+#login-password { width: 6rem; }	
+	
+/* //// Kasutajanimi //// */
+#kasutajanimi { float: right; font-size: 14px; display: none; }	
+	
+/* //// Logimisnupp //// */
+#logimisnupp { float: right; margin-right: 1rem; }
+	
 /* //// Redaktorinupp //// */
-.redaktoriNupp { float: right; margin-right: 2rem; }
+.redaktoriNupp { float: right; display: none; }
 .sees { background-color: #E7E7E7; }	
 	
-/* //// Autentimisala //// */
-#autentimisala { float: right; font-size: 14px; margin-right: 5rem; }
-
 /* Bootstrapi vaikeväärtuste üledefineerimine */
 .navbar-nav .col-sm-6 { padding-left: 5px; padding-right: 5px; }
 .navbar-nav > li > a { padding-top: 0 !important; }
@@ -68,8 +77,6 @@ a { background-color: inherit; color: #009999;
 .multi-column-dropdown li a {
 	display: block; clear: both; line-height: 1.428571429;
 	color: #333; white-space: normal; }
-
-.logiNupp { padding-top: 0 !important; } /* Loginupp */
 
 /* //////////////// Külgmenüü //////////////// */
 .kylgmenyy { background: linear-gradient(to right, White, #F8F8F8);
@@ -102,9 +109,9 @@ article { color: #484848; font-size: 14px;
 article p { margin: 0 0 1.1em 0; }
 
 /* //////// Loend //////// */
-article ul { list-style-type: circle; }
+article ul { list-style-type: circle; margin-left: -24px; }
 article li:before { /* content: '—  '; /* em dash */ }
-
+ 
 /* //////// Pealkiri (h1) //////// */
 h1 { font: 1.1em "Roboto Condensed", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 26px; 	font-weight: 300; letter-spacing: 3px;

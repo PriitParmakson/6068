@@ -44,7 +44,7 @@
 <body>
 
 <nav class="navbar navbar-default" role="navigation">
-	<!-- Bränding ja ü<l></l>amenüü avamise nupp mobiilseadmele -->
+	<!-- Navigatsiooniala ülarida -->
 	<div class="navbar-header">
 
 		<!-- Mobiilseadmel menüü laiendamise nupp -->
@@ -58,42 +58,48 @@
 
 		<!-- Kursuse nimetus -->
 		<div id='kursusenimetus'>
-		<a class="navbar-brand" href="#">
-			<!-- span class="glyphicon glyphicon-education"></span -->
-			<span class='sissejuhatus'>IFI6068 Sissejuhatus infosüsteemidesse</span>
-		</a>
+			<a class="navbar-brand" href="#">
+				<span class='sissejuhatus'>IFI6068 Sissejuhatus infosüsteemidesse</span>
+			</a>
 		</div>
 
-		<!-- Redaktorinupp -->
-		<div class='redaktoriNupp navbar-brand'>
-			<a href='system/Redaktor.html'>
-				<span class="glyphicon glyphicon-pencil"></span>
-			</a>					
-		</div>
-		
-		<!-- Autentimisala -->
-		<div id='autentimisala' class='navbar-brand'>
-
-			<!-- Kasutajanimi-->
-			<span class='kasutajanimi'></span>
-
-			<!-- Logi sisse/välja-->
-			<a href='#' class='logiNupp'></a>
-
-			<!-- Sisselogimisvorm-->
-			<form style="display:none">
-				<div class="VEATEADE" style="display:none"></div>
+		<!-- Sisselogimisvorm-->
+		<div id='logimisvorm'>	
+			<form >
+				<!-- div class="VEATEADE" style="display:none"></div -->
 				<input type="text" id="login-username" placeholder="Nimi" />
 				<input type="password" id="login-password" placeholder="Salasõna" />
 
-				<a href='#' class='sisene btn btn-default nupp'>Sisene</a>
-				<a href='#' class='katkesta btn btn-default nupp'>
-					<span class='glyphicon glyphicon-remove'></span>
+				<a id='sisene' href='#'>
+					<i class="material-icons ikoon"
+					style='color: #00acc1; font-size: 48px;'>check</i>
+				</a>
+				<a  id='katkesta' href='#'>
+					<i class="material-icons ikoon"
+					style='color: #00acc1; font-size: 48px;'>cancel</i>
 				</a>
 			</form>
-
 		</div>
-		<!-- Autentimisala lõpp -->
+		
+		<!-- Kasutajanimi -->
+		<div id='kasutajanimi' class='navbar-brand'>
+		</div>	
+		
+		<!-- Logimisnupp -->
+		<div id='logimisnupp'>
+			<a href='#' class='logiNupp'>
+				<i class="material-icons ikoon"
+					style='color: #00acc1; font-size: 48px;'>perm_identity</i>
+			</a>		
+		</div>
+		
+		<!-- Redaktorinupp -->
+		<div class='redaktoriNupp'>
+			<a href='system/Redaktor.html'>
+				<i class="material-icons ikoon"
+					style='color: #00acc1; font-size: 48px;'>create</i>
+			</a>					
+		</div>
 
 	</div>
 	<!--/.navbar-header-->
